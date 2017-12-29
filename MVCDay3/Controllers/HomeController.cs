@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MVCDay3.Models;
+using MVCDay3.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -27,8 +29,43 @@ namespace MVCDay3.Controllers
 
         public ActionResult Index3(string id)
         {
-            TempData["FirstName"] = 23;
+            TempData["FirstName"] = id;
+            TempData.Keep("FirstName");
             return View();
+        }
+
+        public ActionResult Redirect()
+        {
+            return View();
+        }
+
+        public Employee GetEmpDetail()
+        {
+            Employee em = new Employee()
+            {
+                FirstName = "Sita",
+                LastName = "Gupta"
+            };
+            return em;
+        }
+
+        public Department GetDeptDetail()
+        {
+            Department dep = new Department()
+            {
+                DeptName = "FS",
+                DeptId = 1
+            };
+            return dep;
+        }
+
+        public ActionResult Index4()
+        {
+            EmpDept ed = new EmpDept();
+            ed.emp = GetEmpDetail();
+            ed.dept = GetDeptDetail();
+
+            return View(ed);
         }
     }
 }

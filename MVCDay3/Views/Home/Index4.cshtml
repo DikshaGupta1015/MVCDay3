@@ -1,0 +1,23 @@
+﻿@model MVCDay3.ViewModel.EmpDept
+
+@{
+    ViewBag.Title = "Index4";
+}
+
+<h2>Index4</h2>
+
+<div>
+    <h4>EmpDept</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+</div>
+<p>
+    <b>First Name:</b>@Html.DisplayFor(i => i.emp.FirstName)<br />
+    <b>Last Name:</b>@Html.DisplayFor(i => i.emp.LastName)<br />
+    <hr/>
+
+    <b>Department Name:</b>@Html.DisplayFor(d => d.dept.DeptName)<br/>
+    <b>Department Id:</b>@Html.DisplayFor(d => d.dept.DeptId)<br/>
+
+</p>
